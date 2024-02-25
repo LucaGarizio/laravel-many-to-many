@@ -23,6 +23,7 @@ class ProjectTableSeeder extends Seeder
             -> each(function($project) {
 
             $type = Type :: inRandomOrder() -> first();
+             // Associa il tipo di progetto al progetto corrente
             $project -> type() -> associate($type);
 
             $project -> save();
