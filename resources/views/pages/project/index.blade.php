@@ -11,7 +11,9 @@
         <li> 
             <h4> Nome Progetto:</h4>
                 <h3>{{ $project -> name }}</h3>
+                <h3>{{ $project -> type -> name}}</h3>
                 <br>
+              
             <h5> Descrizione: </h5>
                  {{ $project -> description }}
                 <br>
@@ -23,6 +25,9 @@
                 <em>{{ $technology -> name}} </em>
                 <br>
             @endforeach
+            <br>
+            <a href="{{route('project.edit', $project -> id) }}">Modifica</a>
+            <br>
             <br>
             <br>
     @endforeach

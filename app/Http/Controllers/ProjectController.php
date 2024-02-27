@@ -26,6 +26,7 @@ class ProjectController extends Controller
 
         $types = Type::all();
         $technologies = Technology ::all();
+
         return view('pages.project.create', compact('types', 'technologies'));
     }
 
@@ -49,10 +50,30 @@ class ProjectController extends Controller
 
     public function edit($id) {
 
-       
+        $types = Type::all();
+        $technologies = Technology ::all();
+
+        $project = Project :: find ($id);
+
+        return view('pages.project.edit', compact('types','project', 'technologies'));
     }
+
+
     public function update(Request $request, $id) {
 
-     
+        $data = $request -> all();
+        $type = Type::find($data['type_id']);
+
+        $project = Project:: find($id);
+        $project -> name = $data['name'];
+        $project -> description = $data['description'];
+        
+        $project -> type() -> associate($type);
+
+        $project -> save();
+
+        $project -> technologies() -> sync($data['technology_id']);
+
+        return redirect() -> route ('project.index');
     }
 }
