@@ -18,7 +18,7 @@ class ProjectTableSeeder extends Seeder
     {
        
         Project :: factory()
-            -> count(50)
+            -> count(10)
             -> make()
             -> each(function($project) {
 

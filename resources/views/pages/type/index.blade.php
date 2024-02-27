@@ -8,17 +8,21 @@
         @foreach ($types as $type)
             <li>
                 <h2>Categoria progetto</h2>
-                <h2>{{ $type -> titolo }}</h2>
-                <h5>{{ $type -> data }}</h5>
-                
-                <h3>Contenitore progetti</h3>
+                <h2>{{ $type -> name }}</h2>
+                <h5>{{ $type -> description }}</h5>
+                <br>
+                <h3>Contenitore progetti</h3> 
                 <ul>
                     @foreach ($type -> projects as $project)
                         <li>
-                            <b>{{ $project -> nome }}</b>
+                             nome progetto : <br><b>{{ $project -> nome }}</b>
                             <br>
-                            <span>{{ $project -> descrizione }}</span>
+                           
+                            <span> descrizione: <br> {{ $project -> descrizione }}</span>
+                            <br>
+                            <br>
                         </li>
+
                     @endforeach
                 </ul>
             </li>
