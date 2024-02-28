@@ -26,6 +26,11 @@
                 <br>
             @endforeach
             <br>
+            @if ($project -> image )
+            <img src="{{asset('/storage/' . $project -> image)}}" width="200px" height="200px" style="border-radius: 50%">
+            @endif
+           
+            <br>
             <a href="{{route('project.edit', $project -> id) }}">Modifica</a>
             <br>
             <br>

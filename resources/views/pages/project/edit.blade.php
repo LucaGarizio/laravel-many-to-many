@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <h1>Modifica progetto</h1>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     @csrf
     @method("PUT")
     <label for="name">Nome</label>
@@ -41,6 +41,19 @@
             </label>
         </div>
     @endforeach
-    <input type="submit" value="Modifica">
+    <br>
+    @if ($project -> image )
+        <img src="{{asset('/storage/' . $project -> image)}}" 
+        width="100px" height="100px" 
+        style="border-radius: 50%">
+    @endif
+    <br>
+    <br>
+        <label for="image">Cambia Immagine</label>
+        <input type="file" name="image" id="image"
+        accept="image/*"> 
+        <br>   
+        <br>
+        <input type="submit" value="Modifica">
 </form>
 @endsection

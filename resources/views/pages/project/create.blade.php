@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <h1>Nuovo progetto</h1>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     @csrf
     @method("POST")
     <label for="name">Nome</label>
@@ -31,8 +31,11 @@
             <label for="{{"technology-" . $technology -> id}}">
                 {{$technology -> name}}
             </label>
+           
         </div>
     @endforeach
+    <label for="image">Carica Immagine</label>
+    <input type="file" name="image" id="image"> <br>    
     <input type="submit" value="Crea">
 </form>
 @endsection

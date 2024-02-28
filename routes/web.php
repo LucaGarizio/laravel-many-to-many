@@ -15,7 +15,6 @@ Route::get('/types', [TypeController ::class, 'index'])
 
 Route::get('/projects/create', [ProjectController :: class, 'create'])
     ->name('project.create');
-
 Route :: post('/projects/create', [ProjectController :: class, 'store'])
     -> name('project.store');
 
