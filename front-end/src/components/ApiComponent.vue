@@ -5,10 +5,10 @@ export default {
 
     mounted() {
         axios
-            .get("http://localhost:8000/api/v1/technology")
+            .get("http://localhost:8000/api/v1/technologies")
             .then((res) => {
-                const data = res.data;
-                console.log(data);
+                const data = res.data.technologies;
+                console.log(res.data.technologies);
             })
             .catch((error) => {
                 console.log(error);

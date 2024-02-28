@@ -6,5 +6,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiController;
 
 Route:: group(['prefix' => '/v1'], function() {
-    Route::get('technology', [ApiController :: class, 'getTechnology']);
+
+    Route::get('technologies', [ApiController :: class, 'getTechnologies']);
 });
